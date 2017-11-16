@@ -1,8 +1,8 @@
-#A Coefficient of Restitution Testing System for Baseballs
+# A Coefficient of Restitution Testing System for Baseballs
 
 This system was designed as part of a one month project CAPSTONE introduction project.
 
-CAPSTONE project by Adam Woo, Graham Goodwin, and Chloe Desjardins
+by Adam Woo, Dana Wensberg
 
 ## Mathematical Modeling
 
