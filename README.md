@@ -1,0 +1,26 @@
+#A Coefficient of Restitution Testing System for Baseballs
+
+This system was designed as part of a one month project CAPSTONE introduction project.
+
+CAPSTONE project by Adam Woo, Graham Goodwin, and Chloe Desjardins
+
+## Mathematical Modeling
+
+## Hardware
+
+Here is a list of the selected hardware:
+
+| Component | Part | Description | Price |
+| --- | --- | --- | --- |
+| Microcontroller | DFRobot Romeo Board | The Romeo board is a microcontroller based on the ATmega32u4 chip, like the Arduino Leonardo. While the Romeo board was designed for robotics, the only special features used of this board were the built in buttons to control the system. This board was a loan from the Trinity College Engineering Department | ~$35 |
+| LCD |  |  |  |
+| Lasers |  |  |  |
+| Parts |  |  |
+| Testing Surface |  |  |
+| Cannon Materials |  |  |
+
+## Building Process
+
+## Programming
+
+## Results
