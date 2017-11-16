@@ -13,10 +13,10 @@ Here is a list of the selected hardware:
 ### Speed Gate
 | Component | Model | Description | Price |
 | --- | --- | --- | --- |
-| Microcontroller | DFRobot Romeo Board | The Romeo board is a microcontroller based on the ATmega32u4 chip, like the Arduino Leonardo. While the Romeo board was designed for robotics, the only special features used of this board were the built in buttons to control the system. This board was a loan from the Trinity College Engineering Department. | $0 (Retail: ~$35) |
-| LCD | DFR0063 | This I2C 16x2 Arduino LCD Screen is using an I2C communication interface. It means it only needs 4 pins for the LCD display: VCC, GND, SDA, SCL. It will saves at least 4 digital / analog pins on Arduino. This component was a loan from the Trinity College Engineering Department. | $0 (Retail: ~$35) |
-| Lasers |  6x Generic Red 650nm 6mm 5V 5mW Diode Lasers | Any 5V laser could be used for this project. These were chosen because of their small form factor and cheap price. | ~$3.50 |
-| Photodiodes | 6x Generic 5MM Photodiode | Photodiodes provide a faster response time than photosensitive resistors or transistors. | ~$1.50 |
+| Microcontroller | [DFRobot Romeo Board](https://www.dfrobot.com/product-844.html) | The Romeo board is a microcontroller based on the ATmega32u4 chip, like the Arduino Leonardo. While the Romeo board was designed for robotics, the only special features used of this board were the built in buttons to control the system. This board was a loan from the Trinity College Engineering Department. | $0 (Retail: ~$35) |
+| LCD | [DFR0063](https://www.dfrobot.com/product-135.html) | This I2C 16x2 Arduino LCD Screen is using an I2C communication interface. It means it only needs 4 pins for the LCD display: VCC, GND, SDA, SCL. It will saves at least 4 digital / analog pins on Arduino. This component was a loan from the Trinity College Engineering Department. | $0 (Retail: ~$35) |
+| Lasers |  [6x Generic 650nm 5V Diode Lasers](http://amzn.to/2hCx2co) | Any 5V laser could be used for this project. These were chosen because of their small form factor and cheap price. | ~$3.50 |
+| Photodiodes | [6x Generic 5MM Photodiode](http://amzn.to/2zOcfr7) | Photodiodes provide a faster response time than photosensitive resistors or transistors. | ~$1.50 |
 
 ### Air Cannon
 | Component | Part | Description | Price |
