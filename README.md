@@ -14,9 +14,11 @@ Here is a list of the selected hardware:
 ### Speed Gate
 | Component | Part | Description | Price |
 | --- | --- | --- | --- |
-| Microcontroller | DFRobot Romeo Board | The Romeo board is a microcontroller based on the ATmega32u4 chip, like the Arduino Leonardo. While the Romeo board was designed for robotics, the only special features used of this board were the built in buttons to control the system. This board was a loan from the Trinity College Engineering Department | ~$35 |
+| Microcontroller | DFRobot Romeo Board | The Romeo board is a microcontroller based on the ATmega32u4 chip, like the Arduino Leonardo. While the Romeo board was designed for robotics, the only special features used of this board were the built in buttons to control the system. This board was a loan from the Trinity College Engineering Department | $0 (Retail: ~$35) |
 | LCD |  |  |  |
 | Lasers |  |  |  |
+| Photodiodes |  |  |  |
+
 
 ### Air Cannon
 | Component | Part | Description | Price |
