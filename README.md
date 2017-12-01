@@ -21,8 +21,8 @@ Here is a list of the selected hardware:
 ### Air Cannon
 | Component | Part | Description | Price |
 | --- | --- | --- | --- |
-| Cannon Materials | Schedule 40 PVC | Rated for high psi and inexpensive |
-| Adhesives | Oatey PVC Cement | Adhesive rated for 120 psi |
-| Quick Release | Irritrol 205TF 1” Glove valve and a Neiko 31112 Air Blow Gun Oversized Trigger | To create the quick release valve, we modified a sprinkler solenoid valve. Instructions can be read in the report |
-| Testing Surface | Ash 2x4 | A custom cut block of ash was used as a testing surface to mimic the materials used in baseball bats |
-| Pump | Generic Bike Pump | Any bike pump with a standard schrader valve will fit our system |
+| Cannon Materials | Schedule 40 PVC | Rated for high psi and inexpensive | ~$20 |
+| Adhesives | Oatey PVC Cement | Adhesive rated for 120 psi. This adhesive was a loan from the Trinity College Engineering Department. | ~$0 |
+| Quick Release | Irritrol 205TF 1” Glove valve and a Neiko 31112 Air Blow Gun Oversized Trigger | To create the quick release valve, we modified a sprinkler solenoid valve. Instructions can be read in the report | ~$32.50 |
+| Testing Surface | Ash Wood | A custom cut block of ash was used as a testing surface to mimic the materials used in baseball bats | ~$10 |
+| Pump | Generic Bike Pump | Any bike pump with a standard schrader valve will fit our system | ~$20 |
