@@ -21,14 +21,8 @@ Here is a list of the selected hardware:
 ### Air Cannon
 | Component | Part | Description | Price |
 | --- | --- | --- | --- |
-| Cannon Materials | Schedule 40 PVC |  |
-| Adhesives |  |  |
-| Quick Release |  |  |
-| Testing Surface |  |  |
-| Pump |  |  |
-
-## Building Process
-
-## Programming
-
-## Results
+| Cannon Materials | Schedule 40 PVC | Rated for high psi and inexpensive |
+| Adhesives | Oatey PVC Cement | Adhesive rated for 120 psi |
+| Quick Release | Irritrol 205TF 1” Glove valve and a Neiko 31112 Air Blow Gun Oversized Trigger | To create the quick release valve, we modified a sprinkler solenoid valve. Instructions can be read in the report |
+| Testing Surface | Ash 2x4 | A custom cut block of ash was used as a testing surface to mimic the materials used in baseball bats |
+| Pump | Generic Bike Pump | Any bike pump with a standard schrader valve will fit our system |
