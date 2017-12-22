@@ -4,22 +4,25 @@ Written by Adam Woo
 
 Board: DFRobot Romeo
 
-This program was designed to use a laserdiode array to identify when an object has entered and left a single plane,
-giving the velocity of the object perpendicular to the plane. The program will then analyse the restitution
-properties of the object ball by comparing the initial and rebound velocity. All data will be displayed on a 2x16
-character LCD.
+INCOMPLETE
+
+This program was designed to use a laserdiode array to identify when an object
+has entered and left a single plane, giving the velocity of the object
+perpendicular to the plane. The program will then analyse the restitution
+properties of the object ball by comparing the initial and rebound velocity.
+All data will be displayed on a 2x16 character LCD.
 */
 
-//-------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // include libraries
-//-------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd (0x20,16,2);
 
-//-------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // define constants and variables
-//-------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 #define milliPerMicro_to_milePreHour 2237.4145431945
 int NUM_BUTTON = 3;
 int adc_key_val[5] ={30, 150, 360, 535, 760};
@@ -53,9 +56,9 @@ void set(int action){
 }
 
 void measure(){
-  //-------------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
   // loops if nothing has passed though the speed gate
-  //-------------------------------------------------------------------------------------
+  //------------------------------------------------------------------------------
   if (tests == 0){
     lcd.clear();
     lcd.setCursor(0,0);
@@ -66,9 +69,9 @@ void measure(){
   while (analogRead(photocellPin)<60){}  // while grid unbroken do nothing
 
   if (tests == 1){
-    //-------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------
     // first measurement
-    //-------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------
     SensorOne_timerIn = micros();   //record the time the ball reaches the gate first time
     while (analogRead(photocellPin)>60){} // while grid is broken do nothing
     SensorOne_timerOut = micros();
@@ -78,9 +81,9 @@ void measure(){
   }
 
   else if (tests == 2){
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // second measurement
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     SensorTwo_timerIn = micros(); //record the time the ball reaches the first gate
     while (analogRead(photocellPin)>60){}
     SensorTwo_timerOut = micros();
@@ -91,9 +94,9 @@ void measure(){
 }
 
 int get_button(unsigned int input){
-  //-------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   // checks which button has been pressed (not needed if using external buttons)
-  //-------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   int k;
   for (k = 0; k < NUM_BUTTON; k++){
     if (input < adc_key_val[k]){
@@ -107,9 +110,9 @@ int get_button(unsigned int input){
 }
 
 void setup(){
-  //-------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   // initilize LCD and photoresistor pin
-  //-------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   lcd.init ();
   lcd.backlight ();
   lcd.begin(16,2);
@@ -119,10 +122,12 @@ void setup(){
 
 void loop(){
   while (stage == 0){
-    //-------------------------------------------------------------------------------------
-    // push buttons select the desired mph to display the needed PSI, then activates the
-    // speedgate for measurement. Allows for measurement system to ignore loading.
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
+    // push buttons select the desired mph to display the needed PSI, then
+    // activates the
+    // speedgate for measurement. Allows for measurement system to ignore
+    // loading.
+    //--------------------------------------------------------------------------
     set(button);
     if (button !=0){
       delay(400);
@@ -131,16 +136,16 @@ void loop(){
     button = get_button(buttonPress);    // convert into key press
   }
   while (stage == 1){
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // all measurement take place in the "measure" function
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     measure();
   }
 
   while (stage == 2){
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // all calculations and printing done after all measurements
-    //-------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     timePlaneOne = (SensorOne_timerOut-SensorOne_timerIn);
     speedIn = (baseball_diameter/timePlaneOne)*milliPerMicro_to_milePreHour;
