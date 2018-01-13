@@ -4,7 +4,7 @@ Written by Adam Woo
 
 Board: DFRobot Romeo
 
-INCOMPLETE
+UNTESTED
 
 This program was designed to use a laserdiode array to identify when an object
 has entered and left a single plane, giving the velocity of the object
@@ -23,6 +23,7 @@ LiquidCrystal_I2C lcd (0x20,16,2);
 //------------------------------------------------------------------------------
 // define constants and variables
 //------------------------------------------------------------------------------
+#define sensor_distance 75 //millimeters
 #define milliPerMicro_to_milePreHour 2237.4145431945
 int NUM_BUTTON = 3;
 int adc_key_val[5] ={30, 150, 360, 535, 760};
@@ -31,7 +32,7 @@ int stage, tests, mph, psi;          // variable for setting stages, counting te
 int photocellPin1 = 0, photocellPin2 = 1;     // the cell and 10K pulldown are connected to a0
 int buttonPress;
 unsigned long SensorOne_timerIn, SensorOne_timerOut, SensorTwo_timerIn, SensorTwo_timerOut;
-double timePlaneOne, speedIn, timePlaneTwo, speedOut, COR;    // output variables
+double timeOne, speedIn, timeTwo, speedOut, COR;    // output variables
 
 void set(int action){
   if(action==1){
@@ -45,7 +46,8 @@ void set(int action){
     stage = 1;          // moves to measure stage
   }
 
-  psi = round((1.2*mph)+13);  // PSI calculations found by data generated empirical curve
+  // PSI calculations found by data generated empirical curve
+  psi = round((1.2*mph)+13);
 
   lcd.setCursor(0,0);
   lcd.print("Desired MPH: ");
@@ -56,9 +58,9 @@ void set(int action){
 }
 
 void measure(){
-  //------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   // loops if nothing has passed though the speed gate
-  //------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   if (tests == 0){
     lcd.clear();
     lcd.setCursor(0,0);
@@ -66,17 +68,17 @@ void measure(){
     tests = 1;
   }
 
-  while (analogRead(photocellPin)<60){}  // while grid unbroken do nothing
-
   if (tests == 1){
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // first measurement
-    //------------------------------------------------------------------------------
-    SensorOne_timerIn = micros();   //record the time the ball reaches the gate first time
-    while (analogRead(photocellPin)>60){} // while grid is broken do nothing
+    //--------------------------------------------------------------------------
+
+    while (analogRead(photocellPin1)<60){}  // while grid 1 unbroken do nothing
+    //record the time the ball reaches the gate first time
+    SensorOne_timerIn = micros();
+
+    while (analogRead(photocellPin2)<60){}  // while grid 2 unbroken do nothing
     SensorOne_timerOut = micros();
-
-
     tests = 2;      // initiate outbound measurement
   }
 
@@ -84,8 +86,12 @@ void measure(){
     //--------------------------------------------------------------------------
     // second measurement
     //--------------------------------------------------------------------------
-    SensorTwo_timerIn = micros(); //record the time the ball reaches the first gate
-    while (analogRead(photocellPin)>60){}
+
+    while (analogRead(photocellPin2)<60){}  // while grid 1 unbroken do nothing
+    //record the time the ball reaches the first gate
+    SensorTwo_timerIn = micros(); 
+
+    while (analogRead(photocellPin1)<60){}
     SensorTwo_timerOut = micros();
 
     tests = 3;
@@ -147,10 +153,10 @@ void loop(){
     // all calculations and printing done after all measurements
     //--------------------------------------------------------------------------
 
-    timePlaneOne = (SensorOne_timerOut-SensorOne_timerIn);
-    speedIn = (baseball_diameter/timePlaneOne)*milliPerMicro_to_milePreHour;
-    timePlaneTwo = (SensorTwo_timerOut-SensorTwo_timerIn);
-    speedOut = (baseball_diameter/timePlaneTwo)*milliPerMicro_to_milePreHour;
+    timeOne = (SensorOne_timerOut-SensorOne_timerIn);
+    speedIn = (sensor_distance/timeOne)*milliPerMicro_to_milePreHour;
+    timeTwo = (SensorTwo_timerOut-SensorTwo_timerIn);
+    speedOut = (sensor_distance/timeTwo)*milliPerMicro_to_milePreHour;
 
     lcd.clear();
     lcd.setCursor(0,0);
